@@ -32,7 +32,7 @@ namespace ngCmsBase.Web
             services.AddMvc();
             services.AddDbContext<ngCmsDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ngCmsConnectionString"), c => c.MigrationsAssembly("ngCmsBase.Web")));
             
-            services.AddTransient<IRepository<User, long>, Repository<User, long>>();
+            services.AddScoped<IRepository<User, long>, Repository<User, long>>();
             services.AddTransient<UserService>();
         }
 
