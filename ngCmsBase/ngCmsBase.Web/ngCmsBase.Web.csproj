@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ngCmsBase.Data\ngCmsBase.Data.csproj" />
+    <ProjectReference Include="..\ngCmsBase.Service\ngCmsBase.Service.csproj" />
   </ItemGroup>
 
 </Project>

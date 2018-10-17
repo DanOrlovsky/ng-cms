@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ngCmsBase.Data;
+using ngCmsBase.Service.Authorization;
 
 namespace ngCmsBase.Web.Controllers
 {
@@ -11,17 +12,18 @@ namespace ngCmsBase.Web.Controllers
     public class ValuesController : Controller
     {
 
-        private readonly ngCmsDbContext _context;
+        private readonly UserService _userService;
 
-        public ValuesController(ngCmsDbContext context)
+        public ValuesController(UserService userService)
         {
-            _context = context;
+            _userService = userService;
         }
 
         // GET api/values
         [HttpGet]
         public IEnumerable<string> Get()
         {
+            _userService.GetUsers();
             return new string[] { "value1", "value2" };
         }
 

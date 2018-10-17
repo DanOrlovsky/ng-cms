@@ -9,7 +9,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using ngCmsBase.Core.Data;
+using ngCmsBase.Core.Domain.Authorization;
 using ngCmsBase.Data;
+using ngCmsBase.Data.DAL;
+using ngCmsBase.Service.Authorization;
 
 namespace ngCmsBase.Web
 {
@@ -27,6 +31,9 @@ namespace ngCmsBase.Web
         {
             services.AddMvc();
             services.AddDbContext<ngCmsDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ngCmsConnectionString"), c => c.MigrationsAssembly("ngCmsBase.Web")));
+            
+            services.AddTransient<IRepository<User, long>, Repository<User, long>>();
+            services.AddTransient<UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

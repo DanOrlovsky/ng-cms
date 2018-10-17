@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ngCmsBase.Core\ngCmsBase.Core.csproj" />
+    <ProjectReference Include="..\ngCmsBase.Data\ngCmsBase.Data.csproj" />
+  </ItemGroup>
+
+</Project>
