@@ -27,7 +27,7 @@ namespace ngCmsBase.Core.Data
         /// Gets all entities Async
         /// </summary>
         /// <returns></returns>
-        Task<IQueryable<TEntity>> GetAllAsync();
+        Task<ICollection<TEntity>> GetAllAsync();
 
         /// <summary>
         /// Gets a collection of entities

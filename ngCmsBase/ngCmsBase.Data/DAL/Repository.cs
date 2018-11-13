@@ -67,17 +67,16 @@ namespace ngCmsBase.Data.DAL
         /// <returns></returns>
         public IQueryable<TEntity> GetAll()
         {
-            return _entities;
+            return Entities;
         }
 
         /// <summary>
         /// Gets all async
         /// </summary>
         /// <returns></returns>
-        public async Task<IQueryable<TEntity>> GetAllAsync()
+        public async Task<ICollection<TEntity>> GetAllAsync()
         {
-            var entities = await _entities.ToListAsync();
-            return entities.AsQueryable();
+            return await Entities.ToListAsync();
         }
 
         /// <summary>
@@ -87,7 +86,7 @@ namespace ngCmsBase.Data.DAL
         /// <returns></returns>
         public TEntity GetById(T id)
         {
-            return _entities.Find(id);
+            return Entities.Find(id);
         }
 
         /// <summary>
@@ -97,7 +96,7 @@ namespace ngCmsBase.Data.DAL
         /// <returns></returns>
         public async Task<TEntity> GetByIdAsync(T id)
         {
-            return await _entities.FindAsync(id);
+            return await Entities.FindAsync(id);
         }
 
         /// <summary>
@@ -111,7 +110,7 @@ namespace ngCmsBase.Data.DAL
 
             try
             {
-                _entities.Add(entity);
+                Entities.Add(entity);
                 _context.SaveChanges();
             }
             catch (DbUpdateException exception)
@@ -147,7 +146,7 @@ namespace ngCmsBase.Data.DAL
 
             try
             {
-                await _entities.AddAsync(entity);
+                await Entities.AddAsync(entity);
                 _context.SaveChanges();
                 return entity.Id;
             }
@@ -184,7 +183,7 @@ namespace ngCmsBase.Data.DAL
                 throw new ArgumentNullException(nameof(entity));
             try
             {
-                _entities.Update(entity);
+                Entities.Update(entity);
                 _context.SaveChanges();
             }
             catch (DbUpdateException exception)
@@ -215,7 +214,7 @@ namespace ngCmsBase.Data.DAL
             try
             {
                 /// No better way?
-                await Task.Run(() => _entities.Update(entity));
+                await Task.Run(() => Entities.Update(entity));
                 _context.SaveChanges();
                 return entity.Id;
             }

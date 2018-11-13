@@ -3,10 +3,11 @@ using ngCmsBase.Core.Domain.Authorization;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ngCmsBase.Service.Authorization
 {
-    public class UserService
+    public class UserService : IngServiceBase
     {
         private readonly IRepository<User, long> _userRepository;
 
@@ -16,9 +17,9 @@ namespace ngCmsBase.Service.Authorization
             _userRepository = userRepository;
         }
 
-        public void GetUsers()
+        public async Task<ICollection<User>> GetUsers()
         {
-            _userRepository.GetAll();
+            return await _userRepository.GetAllAsync();
         }
     }
 }

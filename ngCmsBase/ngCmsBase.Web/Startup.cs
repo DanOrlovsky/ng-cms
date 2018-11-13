@@ -13,7 +13,9 @@ using ngCmsBase.Core.Data;
 using ngCmsBase.Core.Domain.Authorization;
 using ngCmsBase.Data;
 using ngCmsBase.Data.DAL;
+using ngCmsBase.Service;
 using ngCmsBase.Service.Authorization;
+using ngCmsBase.Service.Blogs;
 
 namespace ngCmsBase.Web
 {
@@ -30,10 +32,19 @@ namespace ngCmsBase.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddDbContext<ngCmsDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ngCmsConnectionString"), c => c.MigrationsAssembly("ngCmsBase.Web")));
+            services.AddDbContext<ngCmsDbContext>(options => 
+                options.UseSqlServer(Configuration.GetConnectionString("ngCmsConnectionString"), c => c.MigrationsAssembly("ngCmsBase.Web")));
             
-            services.AddScoped<IRepository<User, long>, Repository<User, long>>();
-            services.AddTransient<UserService>();
+            services.AddScoped(typeof(IRepository<,>), typeof(Repository<,>));
+
+            var type = typeof(IngServiceBase);
+            var types = AppDomain.CurrentDomain.GetAssemblies()
+                .SelectMany(s => s.GetTypes())
+                .Where(p => type.IsAssignableFrom(p) && !p.IsInterface);
+            foreach(var t in types)
+            {
+                services.AddTransient(t);
+            }
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ngCmsBase.Core.Domain.Authorization;
+using ngCmsBase.Core.Domain.Blogs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -21,6 +22,7 @@ namespace ngCmsBase.Data
         }
 
         public DbSet<User> Users { get; set; }
-        
+     
+        public DbSet<Blog> Blogs { get; set; }
     }
 }
