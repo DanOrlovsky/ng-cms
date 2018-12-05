@@ -1,5 +1,7 @@
 ﻿using ngCmsBase.Core.Data;
 using ngCmsBase.Core.Domain.Authorization;
+using ngCmsBase.Domain.Authorization;
+using ngCmsBase.Shared.Authorization.Dto;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,17 +11,18 @@ namespace ngCmsBase.Service.Authorization
 {
     public class UserService : IngServiceBase
     {
-        private readonly IRepository<User, long> _userRepository;
+        private readonly UserManager _userManager;
 
 
-        public UserService(IRepository<User, long> userRepository)
+        public UserService(UserManager userManager)
         {
-            _userRepository = userRepository;
+            _userManager = userManager;
         }
 
-        public async Task<ICollection<User>> GetUsers()
+
+        public async Task<User> LoginUser(UserLoginInput input)
         {
-            return await _userRepository.GetAllAsync();
+            return await _userManager.LogInUser(input);
         }
     }
 }

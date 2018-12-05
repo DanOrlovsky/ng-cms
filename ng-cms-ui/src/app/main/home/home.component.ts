@@ -1,5 +1,5 @@
 import { Component, Injector } from "@angular/core";
-import { UserService } from "src/app/services/user.service";
+import { UserService } from "src/app/services/authorization/user.service";
 import { AppComponentBase } from "src/shared/app-component-base";
 
 @Component({
@@ -11,7 +11,7 @@ export class HomeComponent extends AppComponentBase {
     theUrlThing: string = "";
 
     constructor(injector: Injector,
-        private userService: UserService) { 
+        private _userService: UserService) { 
         super(injector);
     }
 

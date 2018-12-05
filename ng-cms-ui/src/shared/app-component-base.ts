@@ -12,10 +12,9 @@ export abstract class AppComponentBase {
     }
 
     async getConfig() {
-        console.log("GetConfig")
+       console.log("GetConfig")
         const response = await this.http.get('./assets/app.config.json').toPromise();
         this.data = response.json();
-        console.log(this.data);
     }
 
 }

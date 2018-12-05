@@ -28,7 +28,7 @@ namespace ngCmsBase.Web.Controllers
         [HttpGet]
         public async Task<IEnumerable<string>> Get()
         {
-            var users = await _userService.GetUsers();
+            //var users = await _userService.GetUsers();
             await _blogService.GetBlogById(1);
             return new string[] { "value1", "value2" };
         }

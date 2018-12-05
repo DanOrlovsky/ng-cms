@@ -10,7 +10,7 @@ import { HomeComponent } from './main/home/home.component';
 import { AccountModule } from './account/account.module';
 import { NavbarComponent } from './shared/nav/navbar.component'
 // SERVICES 
-import { UserService } from './services/user.service';
+import { UserService } from './services/authorization/user.service';
 
 
 @NgModule({

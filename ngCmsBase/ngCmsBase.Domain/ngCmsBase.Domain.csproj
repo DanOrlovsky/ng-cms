@@ -4,4 +4,13 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ngCmsBase.Core\ngCmsBase.Core.csproj" />
+    <ProjectReference Include="..\ngCmsBase.Shared\ngCmsBase.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

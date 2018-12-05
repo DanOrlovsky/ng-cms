@@ -9,8 +9,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ngCmsBase.Core\ngCmsBase.Core.csproj" />
     <ProjectReference Include="..\ngCmsBase.Data\ngCmsBase.Data.csproj" />
+    <ProjectReference Include="..\ngCmsBase.Domain\ngCmsBase.Domain.csproj" />
+    <ProjectReference Include="..\ngCmsBase.Shared\ngCmsBase.Shared.csproj" />
   </ItemGroup>
 
 </Project>

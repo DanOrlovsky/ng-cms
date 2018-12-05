@@ -15,5 +15,5 @@ export class UserService {
         this.data = response.json();
     }
 
-
+    
 }
