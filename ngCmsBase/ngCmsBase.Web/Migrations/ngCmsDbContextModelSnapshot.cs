@@ -25,8 +25,20 @@ namespace ngCmsBase.Web.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<long>("CreatedBy");
+
+                    b.Property<DateTime>("CreationTime");
+
+                    b.Property<long>("DeletedBy");
+
+                    b.Property<DateTime>("DeletionTime");
+
                     b.Property<string>("Email")
                         .HasMaxLength(128);
+
+                    b.Property<long>("LastModifiedBy");
+
+                    b.Property<DateTime>("LastModifiedTime");
 
                     b.Property<string>("Name")
                         .HasMaxLength(64);
@@ -35,6 +47,8 @@ namespace ngCmsBase.Web.Migrations
 
                     b.Property<string>("Surname")
                         .HasMaxLength(64);
+
+                    b.Property<string>("UrlSlug");
 
                     b.Property<string>("UserName")
                         .IsRequired()

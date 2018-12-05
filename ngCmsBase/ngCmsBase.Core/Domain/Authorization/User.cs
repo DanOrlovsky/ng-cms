@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ngCmsBase.Core.Domain.Authorization
 {
-    public class User : BaseEntity<long>
+    public class User : BaseAuditedSluggableEntity<long>
     {
         [StringLength(64)]
         public string UserName { get; set; }

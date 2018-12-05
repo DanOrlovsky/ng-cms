@@ -10,8 +10,8 @@ using ngCmsBase.Data;
 namespace ngCmsBase.Web.Migrations
 {
     [DbContext(typeof(ngCmsDbContext))]
-    [Migration("20181113014834_BlogInit")]
-    partial class BlogInit
+    [Migration("20181115022002_initialCreation")]
+    partial class initialCreation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

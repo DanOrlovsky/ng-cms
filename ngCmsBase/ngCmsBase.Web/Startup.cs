@@ -36,7 +36,7 @@ namespace ngCmsBase.Web
                 options.UseSqlServer(Configuration.GetConnectionString("ngCmsConnectionString"), c => c.MigrationsAssembly("ngCmsBase.Web")));
             
             services.AddScoped(typeof(IRepository<,>), typeof(Repository<,>));
-
+            
             var type = typeof(IngServiceBase);
             var types = AppDomain.CurrentDomain.GetAssemblies()
                 .SelectMany(s => s.GetTypes())
